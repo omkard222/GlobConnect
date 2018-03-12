@@ -30,11 +30,13 @@
 
 <% if @userdetail.present? %>
   <%= render @userdetail %>
-<% else %>
-  <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
+
+
 <% end %>
 
 <%= form_tag(userdetails_path, method: :get, id: "search-form") do %>
   <%= text_field_tag :search, params[:search]  %>
+  <%= text_field_tag :search2, params[:search2]  %>
+
   <%= submit_tag 'submit', name: nil %>
 <% end %>

@@ -7,9 +7,10 @@ class UserdetailsController < ApplicationController
   def index
     @userdetails = Userdetail.all
     if params[:search]
-    @posts = Userdetail.search(params[:search]).order("created_at DESC")
+    @userdetails = Userdetail.search(params[:search]).order("created_at DESC")
+    @userdetails = Userdetail.search(params[:search2]).order("created_at DESC") 
   else
-    @posts = Userdetail.all.order('created_at DESC')
+    @userdetails = Userdetail.all.order('created_at DESC')
   end
   end
 
