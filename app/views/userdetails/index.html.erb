@@ -27,3 +27,14 @@
 <br>
 
 <%= link_to 'Create Your Society', new_userdetail_path %>
+
+<% if @userdetail.present? %>
+  <%= render @userdetail %>
+<% else %>
+  <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
+<% end %>
+
+<%= form_tag(userdetails_path, method: :get, id: "search-form") do %>
+  <%= text_field_tag :search, params[:search]  %>
+  <%= submit_tag 'submit', name: nil %>
+<% end %>

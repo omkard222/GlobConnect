@@ -6,6 +6,11 @@ class UserdetailsController < ApplicationController
   # GET /userdetails.json
   def index
     @userdetails = Userdetail.all
+    if params[:search]
+    @posts = Userdetail.search(params[:search]).order("created_at DESC")
+  else
+    @posts = Userdetail.all.order('created_at DESC')
+  end
   end
 
   # GET /userdetails/1
