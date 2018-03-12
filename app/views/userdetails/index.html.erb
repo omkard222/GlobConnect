@@ -1,0 +1,29 @@
+
+<h1>List Of All Societys</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Location</th>
+      <th>Society name</th>
+      <th>Moderator name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @userdetails.each do |userdetail| %>
+      <tr>
+        <td><%= userdetail.location %></td>
+        <td><%= userdetail.society_name %></td>
+        <td><%= userdetail.moderator_name %></td>
+        <td><%= link_to 'Show', userdetail %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Create Your Society', new_userdetail_path %>

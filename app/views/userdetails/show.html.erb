@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @userdetail.location %>
+</p>
+
+<p>
+  <strong>Society name:</strong>
+  <%= @userdetail.society_name %>
+</p>
+
+<p>
+  <strong>Moderator name:</strong>
+  <%= @userdetail.moderator_name %>
+</p>
+
+<%= link_to 'Edit', edit_userdetail_path(@userdetail) %> |
+<%= link_to 'Back', userdetails_path %>
