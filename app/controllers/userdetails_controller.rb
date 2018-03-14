@@ -8,7 +8,7 @@ class UserdetailsController < ApplicationController
     @userdetails = Userdetail.all
     if params[:search]
     @userdetails = Userdetail.search(params[:search]).order("created_at DESC")
-    @userdetails = Userdetail.search(params[:search2]).order("created_at DESC") 
+    @userdetails = Userdetail.search(params[:search2]).order("created_at DESC")
   else
     @userdetails = Userdetail.all.order('created_at DESC')
   end
@@ -41,6 +41,7 @@ class UserdetailsController < ApplicationController
         format.html { render :new }
         format.json { render json: @userdetail.errors, status: :unprocessable_entity }
       end
+
     end
   end
 
@@ -76,6 +77,6 @@ class UserdetailsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def userdetail_params
-      params.require(:userdetail).permit(:location, :society_name, :moderator_name)
+      params.require(:userdetail).permit(:location, :society_name, :moderator_name, {images:[]})
     end
 end
