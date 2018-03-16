@@ -5,6 +5,8 @@ class UsersController < ApplicationController
 
   def show
     @user = user.find(params[:id])
+    @userdetails = @user.userdetails
+    @likes = @user.likes
   end
 
   def update

@@ -1,5 +1,5 @@
 
-<h1>List Of All Societys</h1>
+<h1>List Of All Societies</h1>
 
 <table>
   <thead>
@@ -28,15 +28,20 @@
 
 <%= link_to 'Create Your Society', new_userdetail_path %>
 
-<% if @userdetail.present? %>
-  <%= render @userdetail %>
 
-
-<% end %>
 
 <%= form_tag(userdetails_path, method: :get, id: "search-form") do %>
-  <%= text_field_tag :search, params[:search]  %>
-  <%= text_field_tag :search2, params[:search2]  %>
+  <!-- <%= text_field_tag :search, params[:search]  %> -->
+  <!-- <%= text_field_tag :search2, params[:search2]  %> -->
 
-  <%= submit_tag 'submit', name: nil %>
-<% end %>
+  <!-- <%= submit_tag 'submit', name: nil %> -->
+
+<%= select_tag "location", options_for_select(Userdetail.pluck(:location)) %>
+<%= select_tag "society_name", options_for_select(Userdetail.pluck(:society_name)) %>
+<%= submit_tag 'submit', name: nil %>
+ <% end %>
+ <% if @userdetail.present? %>
+   <%= render @userdetail %>
+
+
+ <% end %>
