@@ -14,7 +14,24 @@
   <strong>Moderator name:</strong>
   <%= @userdetail.moderator_name %>
 </p>
+<p>
 
-<%= link_to 'Edit', edit_userdetail_path(@userdetail) %> |
+
+<%=  @userdetail.images.each do |image|%>
+    <%= image_tag(image.url)%>
+    <%end%>
+
+</p>
+
+<%= link_to 'Edit', edit_userdetail_path(@userdetail) %>
 <%= link_to 'Back', userdetails_path %>
+<<<<<<< HEAD
 <%= link_to 'Like',user_userdetail_likes_path(@userdetail), method: :post, remote: true  %>
+=======
+
+
+
+<div id="post_<%= @userdetail.id %>_likes">
+  <%= render partial: "likes", locals: {userdetail: @userdetail} %>
+</div>
+>>>>>>> 05832d3a329d9399f04016df6b2e87ba16373819

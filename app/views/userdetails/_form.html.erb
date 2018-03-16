@@ -30,6 +30,11 @@
     <%= form.text_field :user_id, id: :userdetail_user_id %>
   </div>
 
+  <div class="field">
+  <%= form.label :Image %>
+  <%= form.file_field :images, multiple: true ,id: :userdetail_images %>
+
+</div>
   <div class="actions">
     <%= form.submit %>
   </div>

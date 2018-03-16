@@ -5,6 +5,7 @@ class UserdetailsController < ApplicationController
   # GET /userdetails
   # GET /userdetails.json
   def index
+<<<<<<< HEAD
     # @userdetails = Userdetail.all
     # if params[:search]
     # @userdetails = Userdetail.search(params[:search]).order("created_at DESC")
@@ -15,6 +16,17 @@ class UserdetailsController < ApplicationController
   #   @userdetails = Userdetail.all.order('created_at DESC')
   # end
 
+=======
+    @current_user = User.first
+    
+    @userdetails = Userdetail.all
+    if params[:search]
+    @userdetails = Userdetail.search(params[:search]).order("created_at DESC")
+    @userdetails = Userdetail.search(params[:search2]).order("created_at DESC")
+  else
+    @userdetails = Userdetail.all.order('created_at DESC')
+  end
+>>>>>>> 05832d3a329d9399f04016df6b2e87ba16373819
   end
 
   # GET /userdetails/1
@@ -45,6 +57,7 @@ class UserdetailsController < ApplicationController
         format.html { render :new }
         format.json { render json: @userdetail.errors, status: :unprocessable_entity }
       end
+
     end
   end
 
@@ -80,7 +93,11 @@ class UserdetailsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def userdetail_params
+<<<<<<< HEAD
       params.require(:userdetail).permit(:location, :society_name, :moderator_name, :user_id)
+=======
+      params.require(:userdetail).permit(:location, :society_name, :moderator_name, {images:[]})
+>>>>>>> 05832d3a329d9399f04016df6b2e87ba16373819
     end
 
 end

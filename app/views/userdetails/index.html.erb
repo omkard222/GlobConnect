@@ -1,12 +1,19 @@
 
+<<<<<<< HEAD
 <h1>List Of All Societies</h1>
+=======
+Hi, Im <%= @current_user.email%>
 
-<table>
+<h1>List Of All Societys</h1>
+>>>>>>> 05832d3a329d9399f04016df6b2e87ba16373819
+
+<table class="table table-bordered" >
   <thead>
     <tr>
       <th>Location</th>
-      <th>Society name</th>
-      <th>Moderator name</th>
+      <th>SocietyName</th>
+      <th>ModeratorName</th>
+      <th>ImagesOfSociety</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,6 +24,7 @@
         <td><%= userdetail.location %></td>
         <td><%= userdetail.society_name %></td>
         <td><%= userdetail.moderator_name %></td>
+          <td><%= userdetail.images %></td>
         <td><%= link_to 'Show', userdetail %></td>
 
       </tr>
@@ -27,6 +35,7 @@
 <br>
 
 <%= link_to 'Create Your Society', new_userdetail_path %>
+<br>
 
 
 
@@ -44,4 +53,16 @@
    <%= render @userdetail %>
 
 
+<<<<<<< HEAD
+=======
+  <%= submit_tag 'submit', name: nil %>
+<% end %>
+<br>
+
+<% @userdetails.each do |userdetail| %>
+   <h3><%= link_to userdetail.society_name, userdetail %></h3>
+   <div><%= simple_format userdetail.society_name %></div>
+  <p id="post_<%=userdetail.id %>_likes"><%= render partial: "likes", locals: {userdetail: userdetail} %></p>
+   <hr />
+>>>>>>> 05832d3a329d9399f04016df6b2e87ba16373819
  <% end %>
