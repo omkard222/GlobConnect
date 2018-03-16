@@ -5,6 +5,8 @@ class UserdetailsController < ApplicationController
   # GET /userdetails
   # GET /userdetails.json
   def index
+    @current_user = User.first
+    
     @userdetails = Userdetail.all
     if params[:search]
     @userdetails = Userdetail.search(params[:search]).order("created_at DESC")

@@ -25,3 +25,9 @@
 
 <%= link_to 'Edit', edit_userdetail_path(@userdetail) %>
 <%= link_to 'Back', userdetails_path %>
+
+
+
+<div id="post_<%= @userdetail.id %>_likes">
+  <%= render partial: "likes", locals: {userdetail: @userdetail} %>
+</div>

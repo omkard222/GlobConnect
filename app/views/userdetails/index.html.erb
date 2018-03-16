@@ -1,4 +1,6 @@
 
+Hi, Im <%= @current_user.email%>
+
 <h1>List Of All Societys</h1>
 
 <table class="table table-bordered" >
@@ -29,6 +31,7 @@
 <br>
 
 <%= link_to 'Create Your Society', new_userdetail_path %>
+<br>
 
 <% if @userdetail.present? %>
   <%= render @userdetail %>
@@ -42,3 +45,11 @@
 
   <%= submit_tag 'submit', name: nil %>
 <% end %>
+<br>
+
+<% @userdetails.each do |userdetail| %>
+   <h3><%= link_to userdetail.society_name, userdetail %></h3>
+   <div><%= simple_format userdetail.society_name %></div>
+  <p id="post_<%=userdetail.id %>_likes"><%= render partial: "likes", locals: {userdetail: userdetail} %></p>
+   <hr />
+ <% end %>

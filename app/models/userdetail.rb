@@ -1,6 +1,8 @@
 require_relative '../uploaders/image_uploader.rb'
 class Userdetail < ApplicationRecord
 
+  has_many :likes
+
   mount_uploaders :images, ImageUploader
   serialize :images, JSON
 
